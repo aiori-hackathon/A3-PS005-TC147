@@ -13,18 +13,39 @@
 
 ---
 
-## 🌐 Live Application
+## 🚀 Live Working Demo 
 
-**Dashboard:** https://snehali-dey-pairadox-bgp-sentinel.vercel.app/
+**Live Dashboard:** [Launch Pairadox BGP Sentinel](https://snehali-dey-pairadox-bgp-sentinel.vercel.app/)
 
 **Backend API:** https://snehali-dey-pairadox-bgp-sentinel-api.onrender.com/
 
 **Interactive API Documentation:** https://snehali-dey-pairadox-bgp-sentinel-api.onrender.com/docs
 
-**Source Code:** https://github.com/CipherGriffin07/snehali-dey-pairadox-bgp-sentinel
+**Official AIORI Source Code:** [Pairadox-BGP-Sentinel folder](https://github.com/aiori-hackathon/A3-PS005-TC147/tree/main/Pairadox-BGP-Sentinel)
 
-The application is publicly accessible through the live dashboard link.
+The application is publicly accessible. Evaluators can submit simulated BGP announcements and inspect anomaly alerts and explanations. The backend runs on a free hosting instance and may take time to wake up after inactivity.
 
+### 🎥 YouTube Videos 
+
+**Team Introduction and Proposed Solution:** [Watch on YouTube](https://youtu.be/NissH7rOqn4?si=xqSG52WtpdK8gwQm)
+
+**Working Demo :** [Watch on YouTube](PASTE_WORKING_DEMO_YOUTUBE_LINK_HERE)
+
+
+### 🧪 How to Test the Live Demo
+
+1. Open the live dashboard and find **Announcement Analyzer**.
+2. Submit the following announcements **in order**, starting with the valid origin to establish a baseline:
+
+| Scenario | Network Prefix | Origin ASN | Expected Result |
+|---|---|---|---|
+| Valid origin | `203.0.113.0/24` | `64500` | Route registered; demo ROA valid |
+| Origin change | `203.0.113.0/24` | `64599` | Origin-change alert |
+| Subprefix anomaly | `203.0.113.0/25` | `64599` | Suspicious more-specific prefix alert |
+
+3. Review the dashboard statistics, **Threat Intelligence**, and **Routing Monitor**.
+
+**Demo limitations:** Announcements are simulated, RPKI checks use local sample ROAs rather than live Internet data, and stored demo data may reset after a backend restart or redeployment. An anomaly is a signal for investigation, not proof of a hijack.
 
 ---
 
@@ -317,8 +338,8 @@ curl -X POST \
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/CipherGriffin07/snehali-dey-pairadox-bgp-sentinel.git
-cd snehali-dey-pairadox-bgp-sentinel
+git clone https://github.com/aiori-hackathon/A3-PS005-TC147.git
+cd A3-PS005-TC147/Pairadox-BGP-Sentinel
 ```
 
 ### Step 2 — Start the Backend
@@ -388,6 +409,8 @@ The repository includes automated tests for the anomaly detection implementation
 
 ## 📂 Project Structure
 
+The following directory is located inside the official AIORI repository at `Pairadox-BGP-Sentinel/`. The submission README is located at the official repository root.
+
 ```text
 Pairadox-BGP-Sentinel/
 │
@@ -413,8 +436,7 @@ Pairadox-BGP-Sentinel/
 │   ├── package.json
 │   └── vite.config.js
 │
-├── .gitignore
-└── README.md
+└── .gitignore
 ```
 
 ---
@@ -486,9 +508,10 @@ Current limitations include:
 
 **AIORI Hackathon 3.0 — PS-005**
 
-| Member  |
-| **Snehali Dey** |
-| **Aratreeka Pahari** |
+| Team Member | Responsibility |
+|---|---|
+| **Snehali Dey** | Backend development and anomaly detection logic |
+| **Aratreeka Pahari** | Data integration, authorization checks, and dashboard |
 
 **Faculty Mentor:** Dr. Moutushi Singh
 
